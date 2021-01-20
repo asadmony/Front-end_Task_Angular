@@ -1,0 +1,129 @@
+
+
+<style>
+  .abc{
+    position: absolute;
+    height: 650px;
+    /* left: 710px; */
+    top: 0px;
+    right: 0px;
+    background: #1F4948;
+  }
+  .image1{
+    max-height: 300px;
+    border-radius: 0px 100px 0px 0px  ;
+  }
+  .image2{
+    max-height: 300px;
+    border-radius: 80px 0px 0px 0px  ;
+    margin-left: 60px;
+  }
+  .image3{
+    max-height: 300px;
+    border-radius: 0px 0px 0px 60px  ;
+    float: right;
+  }
+  .art1{
+    position: absolute;
+    width: 78.85px;
+    height: 89px;
+    left: 60px;
+    top: 80px;
+  }
+  .art2{
+    position: absolute;
+    right: 0px;
+    top: 160px;
+  }
+</style>
+<div class="container" style="position: relative;font-family: 'Poppins';">
+  <div class="abc col-md-7">
+    <img class="art1" src="../assets/img/art1.png" alt="">
+    <img class="art2" src="../assets/img/art2.png" alt="">
+  </div>
+  <nav class="navbar navbar-expand-lg navbar-light bg">
+    <a class="navbar-brand" href="#">BeerStar</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+        aria-haspopup="true" aria-expanded="false">
+        Product
+      </a>
+      <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+        <a class="dropdown-item" href="#">Action</a>
+        <a class="dropdown-item" href="#">Another action</a>
+        <div class="dropdown-divider"></div>
+        <a class="dropdown-item" href="#">Something else here</a>
+      </div>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#">Pricing</a>
+    </li>
+  </ul>
+  <a class="btn border text-white" href="#">Sign in</a>
+</div>
+</nav>
+<div class="row pt-5">
+  <div class="col-md-4 ">
+    <h1>adnjsoawijd</h1>
+    <h5>adawdawd</h5>
+    <div class="input-group mb-3">
+      <input type="text" class="form-control py-4" placeholder="Enter your email">
+      <div class="input-group-append">
+        <span class="input-group-text text-white" style="background-color: #1F4948;">Get Early Access</span>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-8 m-0 pr-0">
+    <div class="">
+      <img class="image1 mb-3" src="./../assets/img/slider1.jpg" alt="">
+      <img class="image2 mb-3" src="./../assets/img/slider2.jpg" alt="">
+      <img class="image3 mb-3" src="./../assets/img/slider3.jpg" alt="">
+    </div>
+  </div>
+</div>
+<div class="products"  style="">
+  <h1 class="text-center text-medium">Products</h1>
+  <div class="row justify-items-center">
+    <div class="col-md-3 m-3" *ngFor="let product of products" data-toggle="modal" data-target="#productModal">
+      <div class="text-center" style="width: 18rem;">
+        <img :src="{{ product.image_url }}" class="" style="max-height: 240px; max-width: 15rem;" alt="">
+        <div class="card-body">
+          <p class="card-text">{{ product.name }}</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+</div>
+<!-- Modal -->
+<div class="modal fade" id="productModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+    <div class="modal-content pt-5">
+      <div class="row">
+        <div class="col-md-6">
+          <div class="text-center" style="width: 18rem;">
+            <img :src="{{ products[0].image_url }}" class="" style="max-height: 240px; max-width: 15rem;" alt="">
+            <div class="card-body">
+              <p class="card-text">{{ products[0].name }}</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div>
+            <h5>Details:</h5>
+            <p>{{ products[0].description }}}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<router-outlet></router-outlet>
