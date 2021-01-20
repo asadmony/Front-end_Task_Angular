@@ -35,19 +35,38 @@
     right: 0px;
     top: 160px;
   }
+  .back-icon{
+    background-image: radial-gradient(circle, #A5BEBE, #A5BEBE 66%, transparent 66%);
+    height: 2em;
+    width: 2em;
+  }
+  .product:hover{
+    cursor: pointer;
+  }
+  .carousel-indicators li {
+    position: relative;
+    width: 10px;
+    height: 10px;
+    border-radius: 100%;
+    color: #000;
+    background-color:#1F4948;
+    top: 40px;
+  }
 </style>
-<div class="container" style="position: relative;font-family: 'Poppins';">
+<div class="container pt-4" style="position: relative;font-family: 'Poppins';">
   <div class="abc col-md-7">
     <img class="art1" src="../assets/img/art1.png" alt="">
     <img class="art2" src="../assets/img/art2.png" alt="">
   </div>
   <nav class="navbar navbar-expand-lg navbar-light bg">
-    <a class="navbar-brand" href="#">BeerStar</a>
+    <a class="navbar-brand back-icon mr-5" href="#">
+      BeerStar
+    </a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
     aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
-
+  
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item dropdown">
@@ -56,10 +75,9 @@
         Product
       </a>
       <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-        <a class="dropdown-item" href="#">Action</a>
-        <a class="dropdown-item" href="#">Another action</a>
-        <div class="dropdown-divider"></div>
-        <a class="dropdown-item" href="#">Something else here</a>
+        <a class="dropdown-item" href="#">Category 1</a>
+        <a class="dropdown-item" href="#">Category 2</a>
+        <a class="dropdown-item" href="#">Category 3</a>
       </div>
     </li>
     <li class="nav-item">
@@ -70,13 +88,13 @@
 </div>
 </nav>
 <div class="row pt-5">
-  <div class="col-md-4 ">
+  <div class="col-md-4 " style="background: url(../assets/img/art3.png) no-repeat left bottom;">
     <h1>adnjsoawijd</h1>
     <h5>adawdawd</h5>
     <div class="input-group mb-3">
       <input type="text" class="form-control py-4" placeholder="Enter your email">
       <div class="input-group-append">
-        <span class="input-group-text text-white" style="background-color: #1F4948;">Get Early Access</span>
+        <button class="input-group-text text-white" style="background-color: #1F4948;">Get Early Access</button>
       </div>
     </div>
   </div>
@@ -86,44 +104,120 @@
       <img class="image2 mb-3" src="./../assets/img/slider2.jpg" alt="">
       <img class="image3 mb-3" src="./../assets/img/slider3.jpg" alt="">
     </div>
+    <div class="col-md-2 offset-8 d-flex justify-content-between align-items-baseline">
+      <i class="fas fa-chevron-circle-left fa-2x"></i>
+      <i class="fas fa-chevron-circle-right fa-3x"></i>
+    </div>
   </div>
 </div>
 <div class="products"  style="">
   <h1 class="text-center text-medium">Products</h1>
-  <div class="row justify-items-center">
-    <div class="col-md-3 m-3" *ngFor="let product of products" data-toggle="modal" data-target="#productModal">
-      <div class="text-center" style="width: 18rem;">
+  <div class="row justify-contents-center">
+    <div class="col-md-3 m-3 product" *ngFor="let product of products" data-toggle="modal" data-target="#productModal">
+      <div class="text-center" style="width: 18rem;" (click)="loadModal(product)">
         <img :src="{{ product.image_url }}" class="" style="max-height: 240px; max-width: 15rem;" alt="">
         <div class="card-body">
           <p class="card-text">{{ product.name }}</p>
         </div>
       </div>
-
     </div>
   </div>
 </div>
+<div class="justify-contents-center p-0 m-0">
+  <div class=" w-100" style="background: url(../assets/img/jabeerwocky-craft-beer1.png) no-repeat center;background-size: 100%; height: 330px;">
+    <div class=" w-100" style="background: linear-gradient(90deg, #1F4948 0%, #265554 24.15%, #336665 39.05%, rgba(196, 196, 196, 0) 57.54%); height: 330px;">
+      <div class="col-md-6 text-white d-flex flex-column" style="padding-top: 140px;">
+        <h3>There's something for everyone!</h3>
+        <p>15% OFF YOUR FIRST 3 ORDER</p>
+      </div>
+    </div>
+  </div>
 </div>
+<div class="container py-5 text-center">
+  <h3>Review</h3>
+  <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <div class="col text-center">
+          
+          <div>
+            <img src="../assets/img/23273695 1.png" alt="">
+            <h5>Shahidul Islam</h5>
+            <p>“AMAZING test with quality products” </p>
+          </div>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <div class="col text-center">
+          <div>
+            <img src="../assets/img/23273695 1.png" alt="">
+            <h5>Shahidul Islam</h5>
+            <p>“AMAZING test with quality products” </p>
+          </div>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <div class="col text-center">
+          <div>
+            <img src="../assets/img/23273695 1.png" alt="">
+            <h5>Shahidul Islam</h5>
+            <p>“AMAZING test with quality products” </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <ol class="carousel-indicators">
+      <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+      <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+      <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+    </ol>
+  </div>
+</div>
+
+
+
 <!-- Modal -->
-<div class="modal fade" id="productModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
-    <div class="modal-content pt-5">
-      <div class="row">
+<div class="modal fade" id="productModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" >
+  <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg">
+    <div class="modal-content" style="background-color: #1F4948;">
+      <div class="modal-header" style="border-bottom: 0 !important;">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span class="text-white" aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="row py-3 pb-3">
         <div class="col-md-6">
           <div class="text-center" style="width: 18rem;">
-            <img :src="{{ products[0].image_url }}" class="" style="max-height: 240px; max-width: 15rem;" alt="">
+            <img :src="{{ modalData.image_url }}" class="shadow-lg" style="max-height: 240px; max-width: 15rem;" alt="">
             <div class="card-body">
-              <p class="card-text">{{ products[0].name }}</p>
+              <p class="card-text text-white text-left pl-4">{{ modalData.name }}</p>
             </div>
           </div>
         </div>
         <div class="col-md-6">
           <div>
-            <h5>Details:</h5>
-            <p>{{ products[0].description }}}</p>
+            <h4 class=" text-white">Details:</h4>
+            <p class="px-3 text=md text-white">{{ modalData.description }}</p>
           </div>
         </div>
       </div>
     </div>
   </div>
 </div>
+<div>
+  
+</div>
+</div>
+<footer style="background-color: #1F4948;">
+  <div class="row py-3">
+    <div class="col-md-6 text-white text-center">
+      © 2020 storename
+    </div>
+    <div class="col-md-4 offset-2 d-flex">
+      <a class="text-white px-4" href="">Gallery </a>
+      <a class="text-white px-4" href="">About</a>
+      <a class="text-white px-4" href="">Contact</a>
+    </div>
+  </div>
+</footer>
 <router-outlet></router-outlet>

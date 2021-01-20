@@ -8,12 +8,17 @@ import {ProductsService} from './products.service'
 })
 export class AppComponent {
   products:any;
+  modalData:any;
   title = 'kc-task';
   constructor(private productData:ProductsService){}
   ngOnInit(): void {
     this.productData.getProducts().subscribe(res=>{
       this.products = res
+      this.modalData = res[0]
       console.log(this.products)
     });
-  };
+  }
+  loadModal(modal:any){
+    this.modalData = modal
+  }
 }
